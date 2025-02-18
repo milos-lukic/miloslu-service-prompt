@@ -1,0 +1,32 @@
+name: miloslu-service-prompt
+base: bare
+build-base: ubuntu@24.04 # the base environment for this rock
+version: '0.1' # just for humans. Semantic versioning is recommended
+summary: Service for running miloslu-go-prompt
+description: |
+    This is miloslu-service-prompt's description.
+platforms: # the platforms this rock should be built on and run on
+    amd64:
+
+
+services:
+  prompt-api:
+    override: replace
+    summary: "Main API service"
+    startup: enabled
+    command: /usr/bin/main
+
+parts:
+  miloslu-go-prompt:
+    plugin: go
+    source: sourcecraft:miloslu-go-prompt
+    source-channel: latest/edge
+    override-build: |
+      craftctl default
+    build-snaps:
+      - go/1.21/stable
+    organize:
+      bin/main: usr/bin/main
+    stage-packages:
+      - base-files_lib
+      - libc6_libs
