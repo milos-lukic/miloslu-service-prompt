@@ -1,5 +1,6 @@
 name: miloslu-service-prompt
-base: bare
+# base: bare Uncomment this along with stage packages once chisel is supported in SD.
+base: ubuntu@24.04
 build-base: ubuntu@24.04 # the base environment for this rock
 version: '0.1' # just for humans. Semantic versioning is recommended
 summary: Service for running miloslu-go-prompt
@@ -27,6 +28,6 @@ parts:
       - go/1.21/stable
     organize:
       bin/main: usr/bin/main
-    stage-packages:
-      - base-files_lib
-      - libc6_libs
+    # stage-packages:
+    #  - base-files_lib
+    #  - libc6_libs
