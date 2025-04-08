@@ -26,8 +26,8 @@ parts:
       craftctl default
     build-snaps:
       - go/1.24/stable
-    organize:
-      bin/main: usr/bin/main
+#    organize:
+#      bin/main: usr/bin/main
     stage-packages:
       - base-files
       - libc6
