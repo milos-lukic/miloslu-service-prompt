@@ -28,6 +28,6 @@ parts:
       - go/1.24/stable
     organize:
       bin/main: usr/bin/main
-    # stage-packages:
-    #  - base-files_lib
-    #  - libc6_libs
+    stage-packages:
+      - base-files
+      - libc6
